@@ -163,6 +163,7 @@ else:
         st.markdown('###### Average Applicant Income')
         st.markdown('###### Average Loan Amount')
         st.markdown('---')        
+        st.markdown('###### African American')
 
     with col[1]:
         st.markdown('###### All Credit Unions')
