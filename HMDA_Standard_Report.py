@@ -151,7 +151,8 @@ else:
         selected_report_type = st.selectbox('Report Type', report_type)
     
         if (selected_report_type == 'Standard Report'):
-            st.markdown('#### Standard Report')
+            year_selected = ['2024', '2023', '2022', '2021', '2020']
+            selected_report_type = st.selectbox('Year', year_selected)
         #group_by = ['State', 'League', 'Asset Class(9)', 'Asset Class(13)']
         #selected_group_by = st.selectbox('Group By', group_by)
     
