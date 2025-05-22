@@ -154,7 +154,7 @@ else:
             year = ['2024', '2023', '2022', '2021', '2020']
             selected_year = st.selectbox('Year', year)
 
-    col = st.columns((1.5, 1.5, 1.5, 1.5, 1.5), gap='medium')
+    col = st.columns((1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5), gap='medium')
     with col[0]:           
         st.markdown('###### ' + selected_year + ' - HMDA')
         st.markdown('---')
@@ -174,6 +174,14 @@ else:
     
     with col[4]:
         st.markdown('###### CDFI CUs')
+        st.markdown('---')
+    
+    with col[5]:
+        st.markdown('###### Depository Banks')
+        st.markdown('---')
+    
+    with col[6]:
+        st.markdown('###### Mortgage Banks')
         st.markdown('---')
 
 
