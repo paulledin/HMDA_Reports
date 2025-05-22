@@ -164,5 +164,9 @@ else:
         st.markdown('##### All Credit Unions')
         st.markdown('---')
 
+    with col[2]:
+        st.markdown('##### Community CUs')
+        st.markdown('---')
+
 
 
