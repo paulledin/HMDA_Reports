@@ -158,7 +158,7 @@ else:
     with col[0]:           
         st.markdown('##### ' + selected_year + ' - HMDA')
         st.markdown('---')
-        st.markdown('###### Number of Institutions')
+        st.markdown('####### Number of Institutions')
         #with st.expander('About', expanded=True):
         #    st.write('''
         #             - Data: NIMBLE AMS and [NCUA Call Report Data](<https://ncua.gov/analysis/credit-union-corporate-call-report-data/quarterly-data>).
