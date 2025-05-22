@@ -157,7 +157,7 @@ else:
     col = st.columns((1.5, 6.5), gap='medium')
     with col[0]:           
         #st.markdown('#### Key Ratios')
-        st.markdown('#### ' + selected_year + ' - HMDA Overview')
+        st.markdown('#### ' + selected_year + ' - HMDA')
     
         #with st.expander('About', expanded=True):
         #    st.write('''
@@ -173,7 +173,7 @@ else:
 
 
 
-        st.markdown('---')
+        #st.markdown('---')
 
 
 
