@@ -156,7 +156,8 @@ else:
 
     col = st.columns((1.5, 6.5), gap='medium')
     with col[0]:           
-        st.markdown('#### Key Ratios')
+        #st.markdown('#### Key Ratios')
+        st.markdown('#### ' + selected_year + ' - HMDA Overview')
     
         #with st.expander('About', expanded=True):
         #    st.write('''
@@ -169,7 +170,7 @@ else:
 
     with col[1]:
         if (selected_report_type == 'Standard Report'):
-            st.markdown('#### ' + selected_year + ' - HMDA Data Overview')
+            st.markdown('#### All Credit Unions')
         else:
             st.markdown('#### HMDA Data Overview')
 
