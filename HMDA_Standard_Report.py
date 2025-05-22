@@ -151,13 +151,8 @@ else:
         selected_report_type = st.selectbox('Report Type', report_type)
     
         if (selected_report_type == 'Standard Report'):
-            year_selected = ['2024', '2023', '2022', '2021', '2020']
-            selected_report_type = st.selectbox('Year', year_selected)
-        #group_by = ['State', 'League', 'Asset Class(9)', 'Asset Class(13)']
-        #selected_group_by = st.selectbox('Group By', group_by)
-    
-        #month = report_periods['report_periods_formatted']
-        #selected_month = st.selectbox('Month', month)
+            year = ['2024', '2023', '2022', '2021', '2020']
+            selected_year = st.selectbox('Year', year)
 
     col = st.columns((1.5, 6.5), gap='medium')
     with col[0]:           
@@ -173,7 +168,11 @@ else:
         st.markdown('---')
 
     with col[1]:
-        st.markdown('#### HMDA Data Overview')
+        if (selected_report_type == 'Standard Report'):
+            st.markdown('#### ' + selected_year + ' - HMDA Data Overview')
+        else:
+            st.markdown('#### HMDA Data Overview')
+
 
         st.markdown('---')
 
