@@ -156,9 +156,8 @@ else:
 
     col = st.columns((1.5, 6.5), gap='medium')
     with col[0]:           
-        #st.markdown('#### Key Ratios')
         st.markdown('##### ' + selected_year + ' - HMDA')
-    
+        st.markdown('---')
         #with st.expander('About', expanded=True):
         #    st.write('''
         #             - Data: NIMBLE AMS and [NCUA Call Report Data](<https://ncua.gov/analysis/credit-union-corporate-call-report-data/quarterly-data>).
@@ -166,7 +165,7 @@ else:
         #             - NIMBLE data is as-of month end.
         #             ''')
                      
-        #st.markdown('---')
+        
 
     with col[1]:
         st.markdown('##### All Credit Unions')
