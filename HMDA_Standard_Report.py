@@ -158,7 +158,10 @@ else:
     with col[0]:           
         st.markdown('###### ' + selected_year + ' - HMDA')
         st.markdown('---')
-        st.markdown('###### Number of Institutions')        
+        st.markdown('###### # of Institutions')
+        st.markdown('###### $ Loan Originations ($Mil)')
+        st.markdown('###### Average Applicant Income')
+        st.markdown('###### Average Loan Amount')        
 
     with col[1]:
         st.markdown('###### All Credit Unions')
