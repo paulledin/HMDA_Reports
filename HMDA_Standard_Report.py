@@ -130,17 +130,6 @@ def getTableAFLTable_from_db(afl_type, group_by, month, table_number):
 
     return (dbConn.session().sql(sqlStmt).to_pandas())
 
-def get_report_periods():
-    periods = pd.read_csv('https://raw.githubusercontent.com/paulledin/data/master/MonthlyReportPeriods.csv')
-    
-    retVal = list()
-    index = 0
-    for x in periods:
-        retVal.insert(index, periods[x])
-        index += 1
-
-    return (retVal)
-
 def get_report_periods_for_display():
     periods = pd.read_csv('https://raw.githubusercontent.com/paulledin/data/master/MonthlyReportPeriods.csv')    
     retVal = list()
