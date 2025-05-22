@@ -147,112 +147,18 @@ else:
     with st.sidebar:
         st.title('HMDA Reports')
     
-        afl_type = ['Member of Americas Credit Unions','Legacy CUNA', 'Legacy NAFCU', 'Member of Both']
-        selected_afl_type = st.selectbox('Affiliation Type', afl_type)
+        report_type = ['Standard Report']
+        selected_report_type = st.selectbox('Report Type', report_type)
     
-        group_by = ['State', 'League', 'Asset Class(9)', 'Asset Class(13)']
-        selected_group_by = st.selectbox('Group By', group_by)
+        #group_by = ['State', 'League', 'Asset Class(9)', 'Asset Class(13)']
+        #selected_group_by = st.selectbox('Group By', group_by)
     
-        month = report_periods['report_periods_formatted']
-        selected_month = st.selectbox('Month', month)
-    
-    if (selected_group_by == 'Asset Class(9)'):
-        table1 = getTableAFLTable_from_db(selected_afl_type, selected_group_by, selected_month, "4")
-    elif (selected_group_by == 'Asset Class(13)'):
-        table1 = getTableAFLTable_from_db(selected_afl_type, selected_group_by, selected_month, "3")
-    else:
-        table1 = getTableAFLTable_from_db(selected_afl_type, selected_group_by, selected_month, "1")
-    
-    table1['% CUs Affiliated'] = round(table1['% CUs Affiliated'] * 100, 1).astype('str') + '%'
-    table1['% Memberships Affiliated'] = round(table1['% Memberships Affiliated'] * 100, 1).astype('str') + '%'
-    table1['% Assets Affiliated'] = round(table1['% Assets Affiliated'] * 100, 1).astype('str') + '%'
-
-    column_configuration = {
-        "Affiliated CUs": st.column_config.NumberColumn(
-        "Total Affiliated CUs",
-        help="Number of Affiliated Credit Unions",
-        min_value=0,
-        max_value=100000,
-        step=1,
-        format="localized",),
-        "Non Affiliated CUs": st.column_config.NumberColumn(
-        "Non Affiliated CUs",
-        help="Number of Non-Affiliated Credit Unions",
-        min_value=0,
-        max_value=100000,
-        step=1,
-        format="localized",),
-        "State Chartered": st.column_config.NumberColumn(
-        "State Chartered CUs",
-        help="Number of State Chartered Credit Unions",
-        min_value=0,
-        max_value=100000,
-        step=1,
-        format="localized",),
-       "Fed Chartered": st.column_config.NumberColumn(
-        "Fed Chartered CUs",
-        help="Number of Federally Chartered Credit Unions",
-        min_value=0,
-        max_value=100000,
-        step=1,
-        format="localized",),
-        "Total CUs": st.column_config.NumberColumn(
-        "Total # of CUs",
-        help="Total Number of Credit Unions",
-        min_value=0,
-        max_value=100000,
-        step=1,
-        format="localized",),
-        "Affiliated Memberships": st.column_config.NumberColumn(
-        "Affiliated Memberships",
-        help="Number of Affiliated Memberships",
-        min_value=0,
-        max_value=100000000,
-        step=1,
-        format="localized",),
-        "Total Memberships": st.column_config.NumberColumn(
-        "Total CU Memberships",
-        help="Number of Total CU Memberships",
-        min_value=0,
-        max_value=100000000,
-        step=1,
-        format="localized",),
-        "Affiliated Assets": st.column_config.NumberColumn(
-        "Total Affiliated Assets ($)",
-        help="Affiliated Credit Union Total Assets",
-        min_value=0,
-        max_value=1000000000000,
-        step=1,
-        format="localized",),
-        "Total Assets": st.column_config.NumberColumn(
-        "Total CU Assets ($)",
-        help="Credit Union Total Assets",
-        min_value=0,
-        max_value=1000000000000,
-        step=1,
-        format="localized",),
-        }
-
+        #month = report_periods['report_periods_formatted']
+        #selected_month = st.selectbox('Month', month)
 
     col = st.columns((1.5, 6.5), gap='medium')
-    with col[0]:          
-        metric_deltas = getMetricDeltas(selected_afl_type, selected_group_by, selected_month, report_periods)   
-    
+    with col[0]:           
         st.markdown('#### Key Ratios')
-        if selected_group_by == 'State' or selected_group_by == 'League':
-            st.markdown('###### (excludes Table 2 CUs)')
-            st.markdown('###### ' + 'Month Ended - ' + selected_month)
-            st.markdown('---')
-    
-        if len(metric_deltas) == 0:
-            st.metric(label = 'Credit Unions Affiliated', value = table1.iloc[len(table1) - 1, 10])
-            st.metric(label = 'Members Affiliated', value = table1.iloc[len(table1) - 1, 11])
-            st.metric(label = 'Assets Affiliated', value = table1.iloc[len(table1) - 1, 12])
-        else:
-            st.metric(label = 'Credit Unions Affiliated', value = table1.iloc[len(table1) - 1, 10], delta = metric_deltas.iloc[0, 0])
-            st.metric(label = 'Members Affiliated', value = table1.iloc[len(table1) - 1, 11], delta = metric_deltas.iloc[0, 1])
-            st.metric(label = 'Assets Affiliated', value = table1.iloc[len(table1) - 1, 12], delta = metric_deltas.iloc[0, 2])
-            st.markdown('---')
     
         with st.expander('About', expanded=True):
             st.write('''
@@ -264,31 +170,9 @@ else:
         st.markdown('---')
 
     with col[1]:
-        if selected_group_by == 'State' or selected_group_by == 'League':
-            st.markdown('#### Table 1 - Excludes Puerto Rico/Territories')
-        else:
-            st.markdown('#### Table 1')
-        
-        st.dataframe(data = table1,
-                     column_config=column_configuration,
-                     hide_index = True,
-                     )
+        st.markdown('#### HMDA Data Overview')
 
         st.markdown('---')
 
-        if selected_group_by == 'State' or selected_group_by == 'League':
-            st.markdown('#### Table 2 - Puerto Rico/Territories')
-            table2 = getTableAFLTable_from_db(selected_afl_type, selected_group_by, selected_month, "2")
-
-            table2['% CUs Affiliated'] = round(table2['% CUs Affiliated'] * 100, 1).astype('str') + '%'
-            table2['% Memberships Affiliated'] = round(table2['% Memberships Affiliated'] * 100, 1).astype('str') + '%'
-            table2['% Assets Affiliated'] = round(table2['% Assets Affiliated'] * 100, 1).astype('str') + '%'
-        
-            st.dataframe(data = table2, 
-                         column_config=column_configuration,
-                         use_container_width = True, 
-                         hide_index = True,
-                         )   
-            st.markdown('---')
 
 
