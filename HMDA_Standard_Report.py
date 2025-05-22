@@ -150,6 +150,8 @@ else:
         report_type = ['Standard Report']
         selected_report_type = st.selectbox('Report Type', report_type)
     
+        if (selected_report_type == 'Standard Report'):
+            st.markdown('#### Standard Report')
         #group_by = ['State', 'League', 'Asset Class(9)', 'Asset Class(13)']
         #selected_group_by = st.selectbox('Group By', group_by)
     
