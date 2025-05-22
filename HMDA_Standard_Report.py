@@ -130,43 +130,6 @@ def getTableAFLTable_from_db(afl_type, group_by, month, table_number):
 
     return (dbConn.session().sql(sqlStmt).to_pandas())
 
-def get_report_periods_for_display():
-    periods = pd.read_csv('https://raw.githubusercontent.com/paulledin/data/master/MonthlyReportPeriods.csv')    
-    retVal = list()
-
-    index = 0
-    for x in periods:
-        retVal.insert(index, periods[x])
-        index += 1
-        
-    df_retVal = pd.DataFrame(retVal[0])
-        
-    for i in range(len(df_retVal)):
-        period = df_retVal.loc[i, "period"]
-        df_retVal.loc[df_retVal['period'] == period, 'report_periods_formatted'] = convertDateToDisplay(str(period))
-
-    return df_retVal
-
-def getTableAFLTable(afl_type, group_by, month, table_number):
-    if(afl_type == 'Legacy CUNA'):
-        aflType = 'Legacycuna'
-    elif(afl_type == 'Legacy NAFCU'):
-        aflType = 'Legacynafcu'
-    elif(afl_type == 'Member of Both'):
-        aflType = 'Both'
-    else:
-        aflType = 'Either'
-        
-    if(group_by == 'League'):
-        groupBy = 'ByLeague'
-    elif(group_by == 'Asset Class(9)'):
-        groupBy = 'ByAcl_9'
-    elif(group_by == 'Asset Class(13)'):
-        groupBy = 'ByAcl_13'
-    else:
-        groupBy = 'ByState'
-        
-    return pd.DataFrame(pd.read_csv('https://raw.githubusercontent.com/paulledin/data/master/afl_table_' + table_number + '_' + groupBy + '_' + aflType + '_' + convertDateToSystem(month) + '.csv'))
 ###############################################################################
 #Start building Streamlit App
 ###############################################################################
