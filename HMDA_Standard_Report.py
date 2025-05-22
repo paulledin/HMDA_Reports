@@ -156,24 +156,24 @@ else:
 
     col = st.columns((1.5, 1.5, 1.5, 1.5, 1.5), gap='medium')
     with col[0]:           
-        st.markdown('##### ' + selected_year + ' - HMDA')
+        st.markdown('###### ' + selected_year + ' - HMDA')
         st.markdown('---')
         st.markdown('###### Number of Institutions')        
 
     with col[1]:
-        st.markdown('##### All Credit Unions')
+        st.markdown('###### All Credit Unions')
         st.markdown('---')
 
     with col[2]:
-        st.markdown('##### Community CUs')
+        st.markdown('###### Community CUs')
         st.markdown('---')
     
     with col[3]:
-        st.markdown('##### LID CUs')
+        st.markdown('###### LID CUs')
         st.markdown('---')
     
     with col[4]:
-        st.markdown('##### CDFI CUs')
+        st.markdown('###### CDFI CUs')
         st.markdown('---')
 
 
