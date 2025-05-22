@@ -166,14 +166,11 @@ else:
         #             - NIMBLE data is as-of month end.
         #             ''')
                      
-        st.markdown('---')
+        #st.markdown('---')
 
     with col[1]:
         st.markdown('#### All Credit Unions')
-
-
-
-        #st.markdown('---')
+        st.markdown('---')
 
 
 
