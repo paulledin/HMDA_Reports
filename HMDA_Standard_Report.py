@@ -159,7 +159,7 @@ else:
         st.markdown('###### ' + selected_year + ' - HMDA')
         st.markdown('---')
         st.markdown('###### # of Institutions')
-        st.markdown('###### $ Loan Originations ($Mil)')
+        st.markdown('###### Loan Originations ($Mil)')
         st.markdown('###### Average Applicant Income')
         st.markdown('###### Average Loan Amount')        
 
