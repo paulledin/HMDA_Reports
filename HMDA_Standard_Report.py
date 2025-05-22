@@ -154,19 +154,11 @@ else:
             year = ['2024', '2023', '2022', '2021', '2020']
             selected_year = st.selectbox('Year', year)
 
-    col = st.columns((1.5, 6.5), gap='medium')
+    col = st.columns((1.5, 1.5, 1.5), gap='medium')
     with col[0]:           
         st.markdown('##### ' + selected_year + ' - HMDA')
         st.markdown('---')
-        st.markdown('###### Number of Institutions')
-        #with st.expander('About', expanded=True):
-        #    st.write('''
-        #             - Data: NIMBLE AMS and [NCUA Call Report Data](<https://ncua.gov/analysis/credit-union-corporate-call-report-data/quarterly-data>).
-        #             - Includes all 'Active' status (NIMBLE) credit unions with a call report filed for most recent reporting period (NCUA).
-        #             - NIMBLE data is as-of month end.
-        #             ''')
-                     
-        
+        st.markdown('###### Number of Institutions')        
 
     with col[1]:
         st.markdown('##### All Credit Unions')
