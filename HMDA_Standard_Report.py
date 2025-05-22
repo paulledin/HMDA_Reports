@@ -169,10 +169,8 @@ else:
         st.markdown('---')
 
     with col[1]:
-        if (selected_report_type == 'Standard Report'):
-            st.markdown('#### All Credit Unions')
-        else:
-            st.markdown('#### HMDA Data Overview')
+        st.markdown('#### All Credit Unions')
+
 
 
         st.markdown('---')
