@@ -161,7 +161,8 @@ else:
         st.markdown('###### # of Institutions')
         st.markdown('###### Loan Originations ($Mil)')
         st.markdown('###### Average Applicant Income')
-        st.markdown('###### Average Loan Amount')        
+        st.markdown('###### Average Loan Amount')
+        st.markdown('---')        
 
     with col[1]:
         st.markdown('###### All Credit Unions')
